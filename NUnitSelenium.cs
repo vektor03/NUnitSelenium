@@ -21,12 +21,6 @@ namespace NUnitSelenium
             driver.Manage().Window.Maximize();
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
         }
-        [OneTimeTearDown]
-        public void Close()
-        {
-            driver.Close();
-            driver.Quit();
-        }
 
         [TestCase("Russian Federation", "Russian", 22)]
         [TestCase("Romania", "English", 32)]
@@ -41,6 +35,16 @@ namespace NUnitSelenium
             Assert.AreEqual(jobsExpected, jobsFound, "Количество вакансий не совпадает");
         }
 
+        [OneTimeTearDown]
+        public void Close()
+        {
+            driver.Close();
+            driver.Quit();
+        }
+
+
+
+
         static void SetCountry(VeeamCareersPage careersPage, string country)
         {
             careersPage.CountrySelection.Click();
@@ -53,7 +57,7 @@ namespace NUnitSelenium
             careersPage.LanguageSelection.Click();
             IWebElement LanguageToSet = careersPage.LanguageToSet(language);
             LanguageToSet.Click();
-            Thread.Sleep(3000);
+            Thread.Sleep(2000);
             careersPage.LanguageSelection.Click();
         }
 

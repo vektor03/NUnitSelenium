@@ -1,7 +1,5 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
-using System;
-using OpenQA.Selenium.Support.UI;
 using System.Threading;
 
 namespace NUnitSelenium.pages
